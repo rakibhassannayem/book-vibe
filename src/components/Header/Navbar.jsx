@@ -1,4 +1,11 @@
 const Navbar = () => {
+  const links = (
+    <>
+      <li className="list-none border-2 color-primary font-semibold text-workSans p-1 rounded-sm cursor-pointer">Home</li>
+      <li className="list-none ml-3 cursor-pointer">Listed Books</li>
+      <li className="list-none ml-3 cursor-pointer">Pages to Read</li>
+    </>
+  );
   return (
     <div className="navbar bg-base-100 shadow-sm">
       <div className="navbar-start">
@@ -24,32 +31,14 @@ const Navbar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
-            <li>
-              <a className="border color-primary font-semibold text-workSans">Home</a>
-            </li>
-            <li>
-              <a>Listed Books</a>
-            </li>
-            <li>
-              <a>Pages to Read</a>
-            </li>
+            {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl font-bold text-primary text-workSans">Book Vibe</a>
+        <a className="btn btn-ghost text-xl font-bold text-primary text-workSans">
+          Book Vibe
+        </a>
       </div>
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
-          <li>
-            <a className="border color-primary font-semibold text-workSans">Home</a>
-          </li>
-          <li>
-            <a>Listed Books</a>
-          </li>
-          <li>
-            <a>Pages to Read</a>
-          </li>
-        </ul>
-      </div>
+      <div className="navbar-center hidden lg:flex">{links}</div>
       <div className="navbar-end gap-4">
         <a className="btn bg-primary">Sign In</a>
         <a className="btn bg-secondary">Sign Up</a>
