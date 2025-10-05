@@ -11,7 +11,9 @@ const Navbar = () => {
       <Link to="/about">
         <li className="list-none ml-3 cursor-pointer">About</li>
       </Link>
-      <li className="list-none ml-3 cursor-pointer">Listed Books</li>
+      <Link to={"/ReadList"}>
+        <li className="list-none ml-3 cursor-pointer">Read List</li>
+      </Link>
       <li className="list-none ml-3 cursor-pointer">Pages to Read</li>
     </>
   );

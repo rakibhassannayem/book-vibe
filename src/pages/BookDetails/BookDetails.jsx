@@ -1,4 +1,5 @@
 import { useLoaderData, useParams } from "react-router";
+import { addToStorage } from "../../utility/addToLS";
 
 const BookDetails = () => {
   const { id } = useParams();
@@ -16,6 +17,13 @@ const BookDetails = () => {
     yearOfPublishing,
     rating,
   } = singleBook;
+
+  const handleMarkAsRead = (id) => {
+    addToStorage(id);
+  };
+
+  const handleWishList = () => {};
+
   return (
     <div className="flex flex-col md:flex-row justify-between my-6 gap-10 text-workSans text-primary">
       <figure className="md:w-1/2 px-3 bg-base-300 p-10 rounded-xl">
@@ -61,9 +69,19 @@ const BookDetails = () => {
           </div>
         </div>
         <div className="my-5 space-x-4">
-        <a className="btn btn-outline">Read</a>
-        <a className="btn bg-secondary">Whishlist</a>
-      </div>
+          <button
+            onClick={() => handleMarkAsRead(id)}
+            className="btn btn-outline"
+          >
+            Mark as Read
+          </button>
+          <button
+            onClick={() => handleWishList(id)}
+            className="btn bg-secondary"
+          >
+            Whishlist
+          </button>
+        </div>
       </div>
     </div>
   );
