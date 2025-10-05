@@ -1,7 +1,16 @@
+import { Link } from "react-router";
+
 const Navbar = () => {
   const links = (
     <>
-      <li className="list-none border-2 color-primary font-semibold text-workSans p-1 rounded-sm cursor-pointer">Home</li>
+      <Link to="/">
+        <li className="list-none border-2 color-primary font-semibold text-workSans p-1 rounded-sm cursor-pointer">
+          Home
+        </li>
+      </Link>
+      <Link to="/about">
+        <li className="list-none ml-3 cursor-pointer">About</li>
+      </Link>
       <li className="list-none ml-3 cursor-pointer">Listed Books</li>
       <li className="list-none ml-3 cursor-pointer">Pages to Read</li>
     </>
