@@ -9,12 +9,12 @@ const Navbar = () => {
         </li>
       </Link>
       <Link to="/about">
-        <li className="list-none ml-3 cursor-pointer">About</li>
+        <li className="list-none ml-3 cursor-pointer font-medium text-primary opacity-80 text-workSans">About</li>
       </Link>
       <Link to={"/ReadList"}>
-        <li className="list-none ml-3 cursor-pointer">Read List</li>
+        <li className="list-none ml-3 cursor-pointer font-medium text-primary opacity-80 text-workSans">Read List</li>
       </Link>
-      <li className="list-none ml-3 cursor-pointer">Pages to Read</li>
+      <li className="list-none ml-3 cursor-pointer font-medium text-primary opacity-80 text-workSans">Pages to Read</li>
     </>
   );
   return (

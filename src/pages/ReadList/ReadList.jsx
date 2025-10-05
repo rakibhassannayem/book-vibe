@@ -9,6 +9,7 @@ import { ChevronDown } from "lucide-react";
 const ReadList = () => {
   const [readList, setReadList] = useState([]);
   const data = useLoaderData();
+  const [sort, setSort] = useState("");
 
   useEffect(() => {
     const storedBookStr = getStoredBook();
@@ -17,27 +18,43 @@ const ReadList = () => {
     setReadList(readList);
   }, []);
 
-  const handleSort = () => {
-
+  const handleSort = (type) => {
+    setSort(type);
+    if (type === "pages") {
+      const sortedByPage = [...readList].sort(
+        (a, b) => a.totalPages - b.totalPages
+      );
+      setReadList(sortedByPage);
+    }
+    if (type === "ratings") {
+      const sortedByPage = [...readList].sort((a, b) => a.rating - b.rating);
+      setReadList(sortedByPage);
+    }
+    if (type === "year") {
+      const sortedByPage = [...readList].sort(
+        (a, b) => a.yearOfPublishing - b.yearOfPublishing
+      );
+      setReadList(sortedByPage);
+    }
   };
-  
+
   return (
     <div>
       <div className="flex justify-center">
         <details className="dropdown">
           <summary className="btn m-1 bg-primary text-wrokSans text-lg rounded-lg">
-            Sort By
+            Sort By {sort ? sort : ""}
             <ChevronDown />
           </summary>
           <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
             <li>
-              <a>Rating</a>
+              <a onClick={() => handleSort("ratings")}>Rating</a>
             </li>
             <li>
-              <a>Number of pages</a>
+              <a onClick={() => handleSort("pages")}>Number of pages</a>
             </li>
             <li>
-              <a>Publishing Year</a>
+              <a onClick={() => handleSort("year")}>Publishing Year</a>
             </li>
           </ul>
         </details>

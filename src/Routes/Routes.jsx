@@ -14,21 +14,21 @@ export const router = createBrowserRouter([
       {
         index: true,
         path: "/",
-        loader: () => fetch("booksData.json"),
+        loader: () => fetch("/booksData.json"),
         Component: Home,
       },
       {
-        path: "/about",
+        path: "about",
         Component: About,
       },
       {
-        path: "/BookDetails/:id",
-        loader: () => fetch("booksData.json"),
+        path: "BookDetails/:id",
+        loader: () => fetch("/booksData.json"),
         Component: BookDetails,
       },
       {
         path: "ReadList",
-        loader: () => fetch("booksData.json"),
+        loader: () => fetch("/booksData.json"),
         Component: ReadList,
       },
     ],

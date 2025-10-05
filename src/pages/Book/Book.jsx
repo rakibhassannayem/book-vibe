@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 import { Star } from "lucide-react";
 const Book = ({ singleBook }) => {
-  const { image, tags, bookName, author, category, rating, bookId } =
+  const { image, tags, bookName, author, category, rating, bookId, totalPages } =
     singleBook;
   return (
     <Link to={`./BookDetails/${bookId}`}>
@@ -23,6 +23,9 @@ const Book = ({ singleBook }) => {
           <h2 className="card-title">{bookName}</h2>
           <p className="font-medium text-primary opacity-80 text-workSans">
             By: {author}
+          </p>
+          <p className="font-medium text-primary opacity-80 text-workSans">
+            Page: {totalPages}
           </p>
           <div className="card-actions justify-between border-t-1 border-dashed font-medium text-[16px] text-primary opacity-80 text-workSans pt-3">
             <p>{category}</p>
