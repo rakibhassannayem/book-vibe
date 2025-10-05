@@ -25,7 +25,7 @@ const Book = ({ singleBook }) => {
             By: {author}
           </p>
           <div className="card-actions justify-between border-t-1 border-dashed font-medium text-[16px] text-primary opacity-80 text-workSans pt-3">
-            <p className="">{category}</p>
+            <p>{category}</p>
             <div className="flex items-center gap-1">
               <span>{rating}</span>
               <img className="w-4" src={star} alt="" />
