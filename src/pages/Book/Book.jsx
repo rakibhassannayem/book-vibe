@@ -1,5 +1,4 @@
 import { Link } from "react-router";
-import star from "../../assets/star.png";
 import { Star } from "lucide-react";
 const Book = ({ singleBook }) => {
   const { image, tags, bookName, author, category, rating, bookId } =
