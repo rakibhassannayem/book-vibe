@@ -9,20 +9,23 @@ import { ChevronDown } from "lucide-react";
 const ReadList = () => {
   const [readList, setReadList] = useState([]);
   const data = useLoaderData();
+
   useEffect(() => {
     const storedBookStr = getStoredBook();
     const storedBook = storedBookStr.map((id) => parseInt(id));
     const readList = data.filter((book) => storedBook.includes(book.bookId));
     setReadList(readList);
   }, []);
+
+  const handleSort = () => {
+
+  };
+  
   return (
     <div>
       <div className="flex justify-center">
         <details className="dropdown">
-          <summary
-            className="btn m-1 bg-primary text-wrokSans text-lg rounded-lg
-          "
-          >
+          <summary className="btn m-1 bg-primary text-wrokSans text-lg rounded-lg">
             Sort By
             <ChevronDown />
           </summary>
@@ -47,7 +50,7 @@ const ReadList = () => {
 
         <TabPanel>
           <h2>Book i read ({readList.length})</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-5">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 my-5">
             {readList.map((singleBook) => (
               <Book key={singleBook.bookId} singleBook={singleBook}></Book>
             ))}

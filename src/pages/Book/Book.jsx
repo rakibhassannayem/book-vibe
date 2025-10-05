@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import star from "../../assets/star.png";
+import { Star } from "lucide-react";
 const Book = ({ singleBook }) => {
   const { image, tags, bookName, author, category, rating, bookId } =
     singleBook;
@@ -28,7 +29,7 @@ const Book = ({ singleBook }) => {
             <p>{category}</p>
             <div className="flex items-center gap-1">
               <span>{rating}</span>
-              <img className="w-4" src={star} alt="" />
+              <Star size={16} />
             </div>
           </div>
         </div>
