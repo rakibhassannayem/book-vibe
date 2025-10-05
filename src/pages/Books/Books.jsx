@@ -1,14 +1,16 @@
-import { useEffect, useState } from "react";
+import { Suspense } from "react";
+import Book from "../Book/Book";
 
-const Books = () => {
-  const [books, setBooks] = useState([]);
-  useEffect(() => {
-    fetch("booksData.json").then((res) => res.json()).then(data=> setBooks(data));
-  }, []);
-  console.log(books)
+const Books = ({ data }) => {
   return (
     <div>
-      <h1>books</h1>
+      <Suspense fallback={<span>loading...</span>}>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-5">
+          {data.map((singleBook) => (
+            <Book singleBook={singleBook} key={singleBook.bookId}></Book>
+          ))}
+        </div>
+      </Suspense>
     </div>
   );
 };
