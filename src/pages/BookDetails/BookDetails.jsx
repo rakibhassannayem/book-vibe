@@ -1,5 +1,9 @@
 import { useLoaderData, useParams } from "react-router";
 import { addToStorage } from "../../utility/addToLS";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
+const MySwal = withReactContent(Swal);
 
 const BookDetails = () => {
   const { id } = useParams();
@@ -16,10 +20,15 @@ const BookDetails = () => {
     publisher,
     yearOfPublishing,
     rating,
-  } = singleBook;
+  } = singleBook || {};
 
   const handleMarkAsRead = (id) => {
     addToStorage(id);
+    MySwal.fire({
+      title: "Marked as Read!",
+      text: "Added to Read List!",
+      icon: "success",
+    });
   };
 
   const handleWishList = () => {};

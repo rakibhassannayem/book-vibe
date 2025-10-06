@@ -9,6 +9,7 @@ export const router = createBrowserRouter([
   {
     path: "/",
     Component: Root,
+    hydrateFallbackElement: <p className="text-2xl text-red-500 text-center">Loading...</p>,
     errorElement: <ErrorPage />,
     children: [
       {
